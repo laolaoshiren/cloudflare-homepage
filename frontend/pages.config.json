@@ -1,0 +1,7 @@
+{
+  "name": "tech-portfolio",
+  "build": {
+    "command": "npm run build",
+    "output_dir": "dist"
+  }
+} 

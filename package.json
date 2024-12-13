@@ -1,0 +1,25 @@
+{
+  "name": "cloudflare-homepage",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "build": "tsc",
+    "dev": "wrangler dev",
+    "deploy": "wrangler deploy",
+    "db:init": "wrangler d1 execute portfolio_db --file=./migrations/init.sql",
+    "kv:put-profile": "wrangler kv:key put --binding=PORTFOLIO_KV \"profile\" --path=./profile.json",
+    "update": "node deploy.js",
+    "quick-update": "npm run build && npm run deploy && cd frontend && npm install && npm run build && npx wrangler pages deploy dist"
+  },
+  "dependencies": {
+    "itty-router": "^4.0.0",
+    "node-fetch": "^3.3.2",
+    "react-router-dom": "^7.0.2"
+  },
+  "devDependencies": {
+    "@cloudflare/workers-types": "^4.0.0",
+    "concurrently": "^8.2.2",
+    "typescript": "^5.0.0",
+    "wrangler": "^3.0.0"
+  }
+}
